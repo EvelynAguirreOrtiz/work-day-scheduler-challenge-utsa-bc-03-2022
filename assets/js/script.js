@@ -2,10 +2,6 @@
 var todaysDate = document.getElementById("currentDay").innerHTML = "<p>" + moment().format("dddd, MMMM Do, YYYY") + "</p>";
 
 
-// 
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN 
 // WHEN I scroll down
 // THEN I am presented with timeblocks for standard business hou
 // WHEN I view the timeblocks for that day
