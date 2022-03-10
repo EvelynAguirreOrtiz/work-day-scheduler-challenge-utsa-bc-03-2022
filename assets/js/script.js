@@ -1,14 +1,18 @@
 // the current day is displayed at the top of the calendar
-var todaysDate = document.getElementById("currentDay").innerHTML = "<p>" + moment().format("dddd, MMMM Do, YYYY") + "</p>";
+var todaysDateEl = document.getElementById("currentDay").innerHTML = "<p>" + moment().format("dddd, MMMM Do, YYYY") + "</p>";
+// hour of day (NEED TO FIX)
+var timeEl = document.getElementById("hour").innerHTML = "<p>" + moment().format("hA") + "</p>";
 
-var time = document.getElementById("hour").innerHTML = "<p>" + moment().format("hA") + "</p>";
+
+
+
 
 
 // change background color as time passes
-var auditTask = function(taskEl) {
-  // get date from task element
-  // var date = $(taskEl).find("span").text().trim();
-  var currentTime = moment().format(hA);
+
+var currentTime = moment().format(hA);
+
+var changeColor = function(timeEl) {
   // remove time class
   $(taskEl).removeClass("future");
   // apply new time class each hour
@@ -18,8 +22,9 @@ var auditTask = function(taskEl) {
 };
 
 
-
-
+// moment().seconds(30).valueOf() === new Date().setSeconds(30);
+// set hour ---- moment().hour(Number); 
+// get hour ---- moment().hour(); // Number
 
 
 // WHEN I scroll down
