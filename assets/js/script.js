@@ -82,22 +82,33 @@ var hourArr = [
 var currentHour = moment().format("hA");
 var i = 8
 var changeColor = function () { 
-	// for (i = 8; i <= 17; 1++) {
-	var blockHour = moment({hour: i}).format("hA");
+	// for (i = 8; i <= 17; i++) {
+	var blockHour = moment({hour: 8}).format("hA");
 	// console.log(blockHour)
 		if (blockHour === currentHour) { 
-			$(textEightEl).addClass("present");
 			console.log ("yes");
-			// textEightEl.removeAttribute('class', 'future');
-			// textEightEl.setAttribute("class", "present");
-		} else {
-			console.log ("no");
-						// textEightEl.removeAttribute('class', 'future');
 			$(textEightEl).removeClass("future");
-			$(textEightEl).addClass("past");
-		}
-	}	 
-// };
+			$(textEightEl).addClass("present");
+
+			blockHour++;
+		} 
+		if (blockHour === currentHour) { 
+			// console.log ("yes");
+			$(textEightEl).removeClass("future");
+			$(textEightEl).addClass("present");
+			$(textNinetEl).removeClass("future");
+			$(textNineEl).addClass("present");
+			blockHour++;
+
+		} 
+
+		// else {
+			// console.log ("no");
+			// $(textEightEl).removeClass("future");
+			// $(textEightEl).addClass("past");
+		// }
+	// }	 
+};
 changeColor();
 
 // save text input
