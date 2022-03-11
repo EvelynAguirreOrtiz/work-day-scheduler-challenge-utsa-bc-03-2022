@@ -1,6 +1,8 @@
+var currentDay = moment().format("dddd, MMMM Do, YYYY");
 // the current day is displayed at the top of the calendar
-var todaysDateEl = document.getElementById("currentDay").innerHTML = "<p>" + moment().format("dddd, MMMM Do, YYYY") + "</p>";
+document.getElementById("currentDay").innerHTML = "<p>" + currentDay + "</p>";
 
+// hourly time
 // var eightAMEl = document.getElementById("8-a");
 // var nineAMEl = document.getElementById("9-a");
 // var tenAMEl= document.getElementById("10-a");
@@ -12,7 +14,6 @@ var todaysDateEl = document.getElementById("currentDay").innerHTML = "<p>" + mom
 // var fourPMEl= document.getElementById("4-p");
 // var fivePMEl= document.getElementById("5-p");
 
-var textEightEl = document.getElementById("text8")
 
 var textEightEl = document.getElementById("text8");
 var textNineEl = document.getElementById("text9");
@@ -42,66 +43,77 @@ var textFiveEl = document.getElementById("text5");
 
 
 // change background color as time passes
-var currentHour = moment().format("hA");
 
 var hourArr = [
 	{
 		hour: document.getElementById("8-a").innerHTML = moment({hour: 8}).format("hA"),
 		textBlock: document.getElementById("text8"),
 		saveBtn: document.getElementById("save-8")
-	}
-	// { nineAM: document.getElementById("9-a").innerHTML = moment({hour: 8}).format("hA") },
-	// { tenAM: document.getElementById("10-a").innerHTML = moment({hour: 8}).format("hA") },
-	// { elevenAM: document.getElementById("11-a").innerHTML = moment({hour: 8}).format("hA") },
-	// { twelvePM: document.getElementById("12-p").innerHTML = moment({hour: 8}).format("hA") },
-	// { onePM: document.getElementById("1-p").innerHTML = moment({hour: 8}).format("hA") },
-	// { twoPM: document.getElementById("2-p").innerHTML = moment({hour: 8}).format("hA") },
-	// { threePM: document.getElementById("3-p").innerHTML = moment({hour: 8}).format("hA") },
-	// { fourPM: document.getElementById("4-p").innerHTML = moment({hour: 8}).format("hA") },
-	// { fivePM: document.getElementById("5-p").innerHTML = moment({hour: 8}).format("hA") }
+	},
+	{ hour: document.getElementById("9-a").innerHTML = moment({hour: 9}).format("hA"),
+		textBlock: document.getElementById("text9"),
+		saveBtn: document.getElementById("save-9")
+	},
+	{ hour: document.getElementById("10-a").innerHTML = moment({hour: 10}).format("hA"),
+		textBlock: document.getElementById("text10"),
+		saveBtn: document.getElementById("save-10")
+	},
+	{ hour: document.getElementById("11-a").innerHTML = moment({hour: 11}).format("hA"),
+		textBlock: document.getElementById("text11"),
+		saveBtn: document.getElementById("save-11")
+	},
+	{ hour: document.getElementById("12-p").innerHTML = moment({hour: 12}).format("hA"),
+		textBlock: document.getElementById("text12"),
+		saveBtn: document.getElementById("save-12")
+	},
+	{ hour: document.getElementById("13-p").innerHTML = moment({hour: 13}).format("hA"),
+		textBlock: document.getElementById("text13"),
+		saveBtn: document.getElementById("save-13")
+	},
+	{ twoPM: document.getElementById("14-p").innerHTML = moment({hour: 14}).format("hA"),
+ },
+	{ threePM: document.getElementById("15-p").innerHTML = moment({hour: 15}).format("hA") },
+	{ fourPM: document.getElementById("16-p").innerHTML = moment({hour: 16}).format("hA") },
+	{ fivePM: document.getElementById("17-p").innerHTML = moment({hour: 17}).format("hA") }
 ];
 
 
 
-
+var currentHour = moment().format("hA");
+var i = 8
 var changeColor = function () { 
-
-	for (i = 8; i <= 17; i++) {
+	// for (i = 8; i <= 17; 1++) {
 	var blockHour = moment({hour: i}).format("hA");
 	// console.log(blockHour)
 		if (blockHour === currentHour) { 
-
-			// $(textEightEl).addClass("present");
+			$(textEightEl).addClass("present");
 			console.log ("yes");
-
 			// textEightEl.removeAttribute('class', 'future');
 			// textEightEl.setAttribute("class", "present");
 		} else {
 			console.log ("no");
 						// textEightEl.removeAttribute('class', 'future');
 			$(textEightEl).removeClass("future");
-
-			$(textEightEl).addClass("present");
+			$(textEightEl).addClass("past");
 		}
 	}	 
-};
-changeColor();
-		
-// save tasks to local storage
-// 
-// var saveSchedule = function () {
-	// save text input
-// 
-// }
-// save-btn
-
-// var loadTasks = function() {
-  // tasks = JSON.parse(localStorage.getItem("tasks"));
-// 
-// 
-// var saveTasks = function() {
-	// localStorage.setItem("tasks", JSON.stringify(tasks));
 // };
+changeColor();
+
+// save text input
+var scheduleItem8 = document.getElementById("text8").value;
+// localStorage.setItem("scheduleItem8", JSON.stringify(scheduleItem8));
+localStorage.setItem("scheduleItem8", scheduleItem8);
+
+
+// var saveSchedule = function () {
+	// localStorage.setItem("scheduleItem8", JSON.stringify(scheduleItem8));
+	// document.getElementById("save-8").addEventListener('click', saveSchedule)
+// 
+// };
+		
+  // tasks = JSON.parse(localStorage.getItem("tasks"));
+ 
 				
 
 // WHEN I scroll down
