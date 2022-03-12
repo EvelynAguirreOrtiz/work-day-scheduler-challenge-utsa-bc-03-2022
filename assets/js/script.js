@@ -71,7 +71,6 @@ var hourArr = [
 	}
 ];
 
-
 var currentHour = moment().format("hA");
 var i = 8
 var changeColor = function () { 
@@ -150,8 +149,13 @@ var changeColor = function () {
 };
 changeColor();
 
+$(document).ready(function(){
+	$("#text8").val(localStorage.getItem("text8"));
+	console.log(document.getElementById("text8").value)
 
+})
 // save text input
+
 var saveSchedule8El = document.getElementById("save-8"); 
 var saveSchedule9El = document.getElementById("save-9"); 
 var saveSchedule10El = document.getElementById("save-10"); 
@@ -165,61 +169,50 @@ var saveSchedule17El = document.getElementById("save-17");
 
 saveSchedule8El.addEventListener('click', function () {
 	localStorage.setItem("text8", document.getElementById("text8").value);
-	JSON.parse(localStorage.getItem("text8"));
-	console.log(document.getElementById("text8").value)
 });
 	
 saveSchedule9El.addEventListener('click', function () {
 		localStorage.setItem("text9", document.getElementById("text9").value);
-		JSON.parse(localStorage.getItem("text9"));
 		console.log(document.getElementById("text9").value)
 	});
 	
 saveSchedule10El.addEventListener('click', function () {
 		localStorage.setItem("text10", document.getElementById("text10").value);
-		JSON.parse(localStorage.getItem("text10"));
 		console.log(document.getElementById("text10").value)
 	});
 	
 saveSchedule11El.addEventListener('click', function () {
 		localStorage.setItem("text11", document.getElementById("text11").value);
-		JSON.parse(localStorage.getItem("text11"));
 		console.log(document.getElementById("text11").value)
 	});
 	
 saveSchedule12El.addEventListener('click', function () {
 		localStorage.setItem("text12", document.getElementById("text12").value);
-		JSON.parse(localStorage.getItem("text12"));
 		console.log(document.getElementById("text12").value)
 	});
 
 saveSchedule13El.addEventListener('click', function () {
 	localStorage.setItem("text13", document.getElementById("text13").value);
-	JSON.parse(localStorage.getItem("text13"));
 	console.log(document.getElementById("text13").value)
 });
 
 saveSchedule14El.addEventListener('click', function () {
 	localStorage.setItem("text14", document.getElementById("text14").value);
-	JSON.parse(localStorage.getItem("text14"));
 	console.log(document.getElementById("text14").value)
 });
 
 saveSchedule15El.addEventListener('click', function () {
 	localStorage.setItem("text15", document.getElementById("text15").value);
-	JSON.parse(localStorage.getItem("text15"));
 	console.log(document.getElementById("text15").value)
 });
 	
 saveSchedule16El.addEventListener('click', function () {
 	localStorage.setItem("text16", document.getElementById("text16").value);
-	JSON.parse(localStorage.getItem("text16"));
 	console.log(document.getElementById("text16").value)
 });
 
 saveSchedule17El.addEventListener('click', function () {
 	localStorage.setItem("text17", document.getElementById("text17").value);
-	JSON.parse(localStorage.getItem("text17"));
 	console.log(document.getElementById("text17").value)
 });
 
