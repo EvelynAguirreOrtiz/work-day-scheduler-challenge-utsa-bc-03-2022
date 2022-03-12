@@ -14,36 +14,19 @@ document.getElementById("currentDay").innerHTML = "<p>" + currentDay + "</p>";
 // var fourPMEl= document.getElementById("4-p");
 // var fivePMEl= document.getElementById("5-p");
 
-
 var textEightEl = document.getElementById("text8");
 var textNineEl = document.getElementById("text9");
 var textTenEl = document.getElementById("text10");
 var textElevenEl = document.getElementById("text11");
 var textTwelveEl = document.getElementById("text12");
-var textOneEl = document.getElementById("text1");
-var textTwoEl = document.getElementById("text2");
-var textThreeEl = document.getElementById("text3");
-var textFourEl = document.getElementById("text4");
-var textFiveEl = document.getElementById("text5");
-
-// time block array
-// var hourArr = [  
-//   {eightAM : document.getElementById("8-a").innerHTML = "<p>" + moment().format("8A") + "</p>"},
-//   {nineAM : document.getElementById("9-a").innerHTML = "<p>" + moment().format("9A") + "</p>"},
-//   {tenAM : document.getElementById("10-a").innerHTML = "<p>" + moment().format("10A") + "</p>"},
-//   {elevenAM : document.getElementById("11-a").innerHTML = "<p>" + moment().format("11A") + "</p>"},
-//   {twelvePM : document.getElementById("12-p").innerHTML = "<p>" + moment().format("12P") + "M" + "</p>"},
-//   {onePM : document.getElementById("1-p").innerHTML = "<p>" + moment().format("1P") + "M" + "</p>"},
-//   {twoPM : document.getElementById("2-p").innerHTML = "<p>" + moment().format("2P") + "M" + "</p>"},
-//   {threePM : document.getElementById("3-p").innerHTML = "<p>" + moment().format("3P") + "M" + "</p>"},
-//   {fourPM : document.getElementById("4-p").innerHTML = "<p>" + moment().format("4P") + "M" + "</p>"},
-//   {fivePM : document.getElementById("5-p").innerHTML = "<p>" + moment().format("5P") + "M" + "</p>"}];
-
-
+var textOneEl = document.getElementById("text13");
+var textTwoEl = document.getElementById("text14");
+var textThreeEl = document.getElementById("text15");
+var textFourEl = document.getElementById("text16");
+var textFiveEl = document.getElementById("text17");
 
 
 // change background color as time passes
-
 var hourArr = [
 	{
 		hour: document.getElementById("8-a").innerHTML = moment({hour: 8}).format("hA"),
@@ -71,53 +54,122 @@ var hourArr = [
 		saveBtn: document.getElementById("save-13")
 	},
 	{ twoPM: document.getElementById("14-p").innerHTML = moment({hour: 14}).format("hA"),
- },
-	{ threePM: document.getElementById("15-p").innerHTML = moment({hour: 15}).format("hA") },
-	{ fourPM: document.getElementById("16-p").innerHTML = moment({hour: 16}).format("hA") },
-	{ fivePM: document.getElementById("17-p").innerHTML = moment({hour: 17}).format("hA") }
+		textBlock: document.getElementById("text14"),
+		saveBtn: document.getElementById("save-14")
+	},
+	{ threePM: document.getElementById("15-p").innerHTML = moment({hour: 15}).format("hA"),
+		textBlock: document.getElementById("text15"),
+		saveBtn: document.getElementById("save-15")
+	},
+	{ fourPM: document.getElementById("16-p").innerHTML = moment({hour: 16}).format("hA"),
+		textBlock: document.getElementById("text16"),
+		saveBtn: document.getElementById("save-16")
+	},
+	{ fivePM: document.getElementById("17-p").innerHTML = moment({hour: 17}).format("hA"),
+		textBlock: document.getElementById("text17"),
+		saveBtn: document.getElementById("save-17")
+	}
 ];
-
 
 
 var currentHour = moment().format("hA");
 var i = 8
 var changeColor = function () { 
-	// for (i = 8; i <= 17; i++) {
-	var blockHour = moment({hour: 8}).format("hA");
+	for (i = 8; i <= 17; i++) {
+	var blockHour = moment({hour: i}).format("hA");
 	// console.log(blockHour)
-		if (blockHour === currentHour) { 
-			console.log ("yes");
-			$(textEightEl).removeClass("future");
-			$(textEightEl).addClass("present");
-
-			blockHour++;
-		} 
-		if (blockHour === currentHour) { 
+		if (blockHour === '8AM') { 
 			// console.log ("yes");
 			$(textEightEl).removeClass("future");
 			$(textEightEl).addClass("present");
-			$(textNinetEl).removeClass("future");
+		} else
+		if (blockHour === '9AM') { 
+			// console.log ("yes");
+			$(textEightEl).removeClass("present");
+			$(textEightEl).addClass("past");
+			$(textNineEl).removeClass("future");
 			$(textNineEl).addClass("present");
-			blockHour++;
-
-		} 
-
-		// else {
-			// console.log ("no");
-			// $(textEightEl).removeClass("future");
-			// $(textEightEl).addClass("past");
-		// }
-	// }	 
+		}  else
+		if (blockHour === '10AM') { 
+				// console.log(blockHour)
+			$(textNineEl).removeClass("present");
+			$(textNineEl).addClass("past");
+			$(textTenEl).removeClass("future");
+			$(textTenEl).addClass("present");
+		}  else
+		if (blockHour === '11AM') { 
+			// console.log (blockHour);
+			$(textTenEl).removeClass("present");
+			$(textTenEl).addClass("past");
+			$(textElevenEl).removeClass("future");
+			$(textElevenEl).addClass("present");
+		}  else
+		if (blockHour === '12PM') { 
+			// console.log (blockHour);
+			$(textElevenEl).removeClass("present");
+			$(textElevenEl).addClass("past");
+			$(textTwelveEl).removeClass("future");
+			$(textTwelveEl).addClass("present");
+		}  else
+		if (blockHour === '1PM') { 
+			// console.log(blockHour)
+			$(textTwelveEl).removeClass("present");
+			$(textTwelveEl).addClass("past");
+			$(textOneEl).removeClass("future");
+			$(textOneEl).addClass("present");
+		}  else
+		if (blockHour === '2PM') { 
+			console.log (blockHour);
+			$(textOneEl).removeClass("present");
+			$(textOneEl).addClass("past");
+			$(textTwoEl).removeClass("future");
+			$(textTwoEl).addClass("present");
+		}  else
+		if (blockHour === '3PM') { 
+			// console.log ("yes");
+			$(textTwoEl).removeClass("present");
+			$(textTwoEl).addClass("past");
+			$(textThreeEl).removeClass("future");
+			$(textThreeEl).addClass("present");
+		}  else
+		if (blockHour === '4PM') { 
+			// console.log ("yes");
+			$(textThreeEl).removeClass("present");
+			$(textThreeEl).addClass("past");
+			$(textFourEl).removeClass("future");
+			$(textFourEl).addClass("present");
+		}  else
+		if (blockHour === '5PM') { 
+			// console.log ("yes");
+			$(textFourEl).removeClass("present");
+			$(textFourEl).addClass("past");
+			$(textFiveEl).removeClass("future");
+			$(textFiveEl).addClass("present");
+		}	
+	}	 
 };
 changeColor();
 
+
 // save text input
-var scheduleItem8 = document.getElementById("text8").value;
-// localStorage.setItem("scheduleItem8", JSON.stringify(scheduleItem8));
-localStorage.setItem("scheduleItem8", scheduleItem8);
+var saveSchedule8El = document.getElementById("save-8");
+
+saveSchedule8El.addEventListener('click', function () {
+	localStorage.setItem("text8", document.getElementById("text8").value);
+	JSON.parse(localStorage.getItem("text8"));
+	console.log(document.getElementById("text8").value)
+});
+
+// saveSchedule(); 
+
+// var scheduleItem8 = document.getElementById("text8").value;
+// // localStorage.setItem("scheduleItem8", JSON.stringify(scheduleItem8));
+// localStorage.setItem("scheduleItem8", scheduleItem8);
+
+ 
 
 
-// var saveSchedule = function () {
+
 	// localStorage.setItem("scheduleItem8", JSON.stringify(scheduleItem8));
 	// document.getElementById("save-8").addEventListener('click', saveSchedule)
 // 
@@ -134,4 +186,3 @@ localStorage.setItem("scheduleItem8", scheduleItem8);
 // THEN the text for that event is saved in local storage
 // WHEN I refresh the page
 // THEN the saved events persist
-// 
