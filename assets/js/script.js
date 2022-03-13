@@ -2,7 +2,6 @@ var currentDay = moment().format("dddd, MMMM Do, YYYY");
 // the current day is displayed at the top of the calendar
 document.getElementById("currentDay").innerHTML = "<p>" + currentDay + "</p>";
 
-
 var textEightEl = document.getElementById("text8");
 var textNineEl = document.getElementById("text9");
 var textTenEl = document.getElementById("text10");
@@ -67,101 +66,192 @@ var hourArr = [
 	}
 ];
 
-// change background color as time passes
+// reset time block at beginning of day
+var hourBlockColorEl = document.querySelector("description");
+var resetDay = function () {
+	$(hourBlockColorEl).addClass("future");
+};
+resetDay();
+			
+// color code time blocks
 var currentHour = moment().format("hA");
 var i = 8
 var changeColor = function () {
-	for (i = 8; i < hourArr.length; i++) {
-		var blockHour = moment({ hour: i }).format("hA");
-		if (blockHour === '8AM' && currentHour === '8AM') {
+	// for (i = 8; i < hourArr.length + 1; i++) {
+		// var blockHour = moment({ hour: i }).format("hA");
+
+		if (
+			// blockHour === '8AM' && 
+			currentHour === '8AM') {
 			$(textEightEl).removeClass("future");
 			$(textEightEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '9AM' ||
+			currentHour === '10AM' ||
+			currentHour === '11AM' ||
+			currentHour === '12PM' ||
+			currentHour === '1PM' ||
+			currentHour === '2PM' ||
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textEightEl).removeClass("future");
 			$(textEightEl).addClass("past");
 		};
-		if (blockHour === '9AM' && currentHour === '9AM') {
+
+		if (
+			// blockHour === '9AM' && 
+		currentHour === '9AM') {
 			$(textEightEl).removeClass("present");
 			$(textEightEl).addClass("past");
 			$(textNineEl).removeClass("future");
 			$(textNineEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '10AM' ||
+			currentHour === '11AM' ||
+			currentHour === '12PM' ||
+			currentHour === '1PM' ||
+			currentHour === '2PM' ||
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textNineEl).removeClass("future");
 			$(textNineEl).addClass("past");
 		};
-		if (blockHour === '10AM' && currentHour === '10AM') {
+
+		if (
+			// blockHour === '10AM' && 
+			currentHour === '10AM') {
 			$(textNineEl).removeClass("present");
 			$(textNineEl).addClass("past");
 			$(textTenEl).removeClass("future");
 			$(textTenEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '11AM' ||
+			currentHour === '12PM' ||
+			currentHour === '1PM' ||
+			currentHour === '2PM' ||
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
+
 			$(textTenEl).removeClass("future");
 			$(textTenEl).addClass("past");
 		};
-		if (blockHour === '11AM' && currentHour === '11AM') {
+
+		if (
+			// blockHour === '11AM' && 
+			currentHour === '11AM') {
 			$(textTenEl).removeClass("present");
 			$(textTenEl).addClass("past");
 			$(textElevenEl).removeClass("future");
 			$(textElevenEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '12PM' ||
+			currentHour === '1PM' ||
+			currentHour === '2PM' ||
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textElevenEl).removeClass("future");
 			$(textElevenEl).addClass("past");
 		};
-		if (blockHour === '12PM' && currentHour === '12PM') {
+
+		if (
+			// blockHour === '12PM' && 
+			currentHour === '12PM') {
 			$(textElevenEl).removeClass("present");
 			$(textElevenEl).addClass("past");
 			$(textTwelveEl).removeClass("future");
 			$(textTwelveEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '1PM' ||
+			currentHour === '2PM' ||
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textTwelveEl).removeClass("future");
 			$(textTwelveEl).addClass("past");
 		};
-		if (blockHour === '1PM' && currentHour === '1PM') {
+
+		if (
+			// blockHour === '1PM' && 
+			currentHour === '1PM') {
 			// console.log(blockHour)
 			$(textTwelveEl).removeClass("present");
 			$(textTwelveEl).addClass("past");
 			$(textOneEl).removeClass("future");
 			$(textOneEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '2PM' ||
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textOneEl).removeClass("future");
 			$(textOneEl).addClass("past");
 		};
-		if (blockHour === '2PM' && currentHour === '2PM') {
+
+		if (
+			// blockHour === '2PM' && 
+		currentHour === '2PM') {
 			// console.log (blockHour);
 			$(textOneEl).removeClass("present");
 			$(textOneEl).addClass("past");
 			$(textTwoEl).removeClass("future");
 			$(textTwoEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '3PM' ||
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textTwoEl).removeClass("future");
 			$(textTwoEl).addClass("past");
 		};
-		if (blockHour === '3PM' && currentHour === '3PM') {
+
+		if (
+			// blockHour === '3PM' && 
+		currentHour === '3PM') {
 			// (blockHour === '3PM') 
 			$(textTwoEl).removeClass("present");
 			$(textTwoEl).addClass("past");
 			$(textThreeEl).removeClass("future");
 			$(textThreeEl).addClass("present");
-		} else {
+		} else if (
+			currentHour === '4PM' ||
+			currentHour === '5PM') {
 			$(textThreeEl).removeClass("future");
 			$(textThreeEl).addClass("past");
 		};
-		if (blockHour === '4PM' && currentHour === '4PM') {
+
+		if (
+			// blockHour === '4PM' && 
+		currentHour === '4PM') {
 			$(textThreeEl).removeClass("present");
 			$(textThreeEl).addClass("past");
 			$(textFourEl).removeClass("future");
 			$(textFourEl).addClass("present");
-		} else {
-			$(textFourEl).removeClass("future");
-			$(textFourEl).addClass("past");
+			} else if (
+				currentHour === '5PM') {
+				$(textFourEl).removeClass("future");
+				$(textFourEl).addClass("past");
 		};
-		if (blockHour === '5PM' && currentHour === '5PM') {
+
+		if (
+			// blockHour === '5PM' && 
+		currentHour === '5PM') {
 			$(textFourEl).removeClass("present");
 			$(textFourEl).addClass("past");
 			$(textFiveEl).removeClass("future");
 			$(textFiveEl).addClass("present");
-		}
-	}
+		};
+
+		if (currentHour === '6PM') {
+			$(textFiveEl).removeClass("present");
+			$(textFiveEl).addClass("past");
+			localStorage.clear();
+		};
+
+
+	// }
 };
 changeColor();
 
@@ -247,3 +337,4 @@ $(document).ready(function () {
 saveSchedule17El.addEventListener('click', function () {
 	localStorage.setItem("text17", document.getElementById("text17").value);
 });
+
